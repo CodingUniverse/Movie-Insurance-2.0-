@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Layout, Palette, Smartphone, MessageSquareHeart, ShieldCheck, Moon, Sun, Users, ClipboardList, FileUp, FileCheck, Layers, Droplet, Type, Stamp, Ruler, ClipboardType, Compass, Loader2, Camera, Search, PlusSquare } from 'lucide-react';
+import { Layout, Palette, Smartphone, MessageSquareHeart, ShieldCheck, Moon, Sun, Users, ClipboardList, FileUp, FileCheck, Layers, Droplet, Type, Stamp, Ruler, ClipboardType, Compass, Loader2, Camera, Search, PlusSquare, Grid, Clipboard } from 'lucide-react';
 import Introduction from './sections/Introduction';
 import VisualHierarchy from './sections/VisualHierarchy';
 import Ergonomics from './sections/Ergonomics';
@@ -21,10 +21,14 @@ import LoadingSpecification from './sections/LoadingSpecification';
 import ImageSpecification from './sections/ImageSpecification';
 import SearchEmptySpecification from './sections/SearchEmptySpecification';
 import ProjectCreationExample from './sections/ProjectCreationExample';
+import ProjectListExample from './sections/ProjectListExample';
+import ProjectDetailExample from './sections/ProjectDetailExample';
 
 export enum Section {
   INTRO = 'intro',
   EXAMPLE1 = 'example1',
+  EXAMPLE2 = 'example2',
+  EXAMPLE3 = 'example3',
   ERGONOMICS = 'ergonomics',
   HIERARCHY = 'hierarchy',
   COLOR = 'color',
@@ -63,7 +67,9 @@ const App: React.FC = () => {
 
   const navItems = [
     { id: Section.INTRO, label: '哲学', icon: <ShieldCheck size={18} /> },
-    { id: Section.EXAMPLE1, label: '示例页', icon: <PlusSquare size={18} /> },
+    { id: Section.EXAMPLE1, label: '创建页', icon: <PlusSquare size={18} /> },
+    { id: Section.EXAMPLE2, label: '项目页', icon: <Grid size={18} /> },
+    { id: Section.EXAMPLE3, label: '详情页', icon: <Clipboard size={18} /> },
     { id: Section.ERGONOMICS, label: '工学', icon: <Smartphone size={18} /> },
     { id: Section.HIERARCHY, label: '按钮', icon: <Palette size={18} /> },
     { id: Section.COLOR, label: '色彩', icon: <Droplet size={18} /> },
@@ -102,6 +108,8 @@ const App: React.FC = () => {
       <main className="flex-1 pb-28 max-w-4xl mx-auto w-full px-4 pt-6">
         {activeSection === Section.INTRO && <Introduction />}
         {activeSection === Section.EXAMPLE1 && <ProjectCreationExample isDarkMode={isDarkMode} />}
+        {activeSection === Section.EXAMPLE2 && <ProjectListExample isDarkMode={isDarkMode} />}
+        {activeSection === Section.EXAMPLE3 && <ProjectDetailExample isDarkMode={isDarkMode} />}
         {activeSection === Section.ERGONOMICS && <Ergonomics />}
         {activeSection === Section.HIERARCHY && <VisualHierarchy isDarkMode={isDarkMode} />}
         {activeSection === Section.COLOR && <ColorSpecification isDarkMode={isDarkMode} />}
