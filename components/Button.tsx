@@ -25,13 +25,13 @@ const Button: React.FC<ButtonProps> = ({
   const baseStyles = "relative flex items-center justify-center font-bold transition-all duration-200 active:scale-[0.96] outline-none";
   
   const variants = {
-    // Electric Blue Theme
+    // strictly aligned with v2.0 Electric Blue theme
     primary: "bg-[#0066FF] text-white hover:bg-[#0052CC] shadow-[0_8px_20px_rgba(0,102,255,0.3)] active:shadow-none",
     highlight: "bg-[#111827] text-white hover:bg-[#1f2937]", 
     secondary: "bg-[#F0F7FF] text-[#0066FF] border-[1px] border-[#0066FF] hover:bg-[#e0efff]",
     tertiary: "bg-white border-[1px] border-[#E5E7EB] text-[#4B5563] hover:bg-[#F5F7FA]",
     ghost: "bg-transparent text-[#9CA3AF] hover:bg-gray-100",
-    danger: "bg-[#FF3B30] text-white hover:bg-[#e6352b]",
+    danger: "bg-[#FF3B30] text-white hover:bg-[#e6352b] shadow-[0_8px_20px_rgba(255,59,48,0.25)]",
   };
 
   const sizes = {
