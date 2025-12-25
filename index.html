@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>剧组保险业务按钮设计规范</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Simplified Flat UI Overrides */
+        .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl {
+            box-shadow: none !important;
+        }
+        .border {
+            border-color: #E5E7EB !important;
+        }
+        .border-2 {
+            border-color: #D1D5DB !important;
+        }
+        
+        /* High Saturation Focus */
+        .focus-ring-blue {
+            outline: 2px solid #004E92;
+            outline-offset: 2px;
+        }
+
+        /* Signature Font Mock */
+        @font-face {
+            font-family: 'SignatureFont';
+            src: url('https://fonts.gstatic.com/s/nanummyeongjo/v22/67at7m929cy7adS2yN-Z6R_fTlvJpX_A.woff2');
+        }
+        .signature-text {
+            font-family: 'SignatureFont', cursive;
+            font-size: 2.4rem;
+            color: #004E92;
+            transform: rotate(-2deg);
+            display: inline-block;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          25% { transform: translateX(-4px); }
+          75% { transform: translateX(4px); }
+        }
+        .animate-shake {
+          animation: shake 0.2s ease-in-out 0s 2;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+</head>
+<body class="bg-[#F8F9FA] text-slate-900 transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
