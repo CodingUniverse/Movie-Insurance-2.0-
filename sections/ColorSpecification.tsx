@@ -20,10 +20,11 @@ const ColorSpecification: React.FC<Props> = ({ isDarkMode }) => {
   ];
 
   const neutralColors = [
-    { name: 'Ink Main', hex: '#111827', desc: 'Deep Ink - 深墨黑', usage: '一级标题、核心正文、深色背景' },
+    { name: 'Card Surface', hex: '#FFFFFF', desc: 'Pure White - 纯净白', usage: '核心交互容器、信息卡片、表单背景' },
+    { name: 'Page BG', hex: '#F5F7FA', desc: 'Cool Gray - 冷灰底', usage: '全局页面画布背景、非焦点区域占位' },
+    { name: 'Ink Main', hex: '#111827', desc: 'Deep Ink - 深墨黑', usage: '一级标题、核心正文、主标语' },
     { name: 'Gray Body', hex: '#4B5563', desc: 'Steel Gray - 钢青灰', usage: '次级描述、辅助文字、表单 Label' },
     { name: 'Border Soft', hex: '#E5E7EB', desc: 'Soft Border - 轻量边', usage: '通用分割线、卡片描边、禁用态底色' },
-    { name: 'Base Background', hex: '#F5F7FA', desc: 'Cool Gray - 冷灰底', usage: '全局页面背景、非焦点容器背景' },
   ];
 
   return (
@@ -41,7 +42,7 @@ const ColorSpecification: React.FC<Props> = ({ isDarkMode }) => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {brandColors.map((color) => (
             <div key={color.name} className={`group relative p-6 rounded-[2rem] border transition-all hover:scale-[1.02] ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-[#E5E7EB] shadow-sm'}`}>
-              <div className="w-full h-24 rounded-2xl mb-4 shadow-[0_8px_20px_rgba(0,102,255,0.25)]" style={{ backgroundColor: color.hex }}></div>
+              <div className="w-full h-24 rounded-2xl mb-4 shadow-[0_8px_20px_rgba(0,102,255,0.15)]" style={{ backgroundColor: color.hex }}></div>
               <div className="space-y-1">
                 <div className="flex justify-between items-baseline">
                   <h4 className="font-black text-sm text-[#111827]">{color.name}</h4>
@@ -108,25 +109,25 @@ const ColorSpecification: React.FC<Props> = ({ isDarkMode }) => {
             <div className="relative z-10 space-y-8">
                 <div className="flex items-center gap-3">
                     <Layout className="text-[#0066FF]" size={28} />
-                    <h3 className="text-xl font-black tracking-tight uppercase italic">Contrast & Contrast Ratio</h3>
+                    <h3 className="text-xl font-black tracking-tight uppercase italic">对比度与视觉平衡</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div className="space-y-3">
                         <div className="h-20 bg-[#0066FF] text-white flex flex-col items-center justify-center font-black rounded-2xl border-4 border-[#0052CC]">
                            <span className="text-lg">Aa</span>
-                           <span className="text-[10px] opacity-60">Electric Blue / White</span>
+                           <span className="text-[10px] opacity-60">电感蓝 / 纯白容器</span>
                         </div>
                         <p className="text-[11px] text-blue-100/60 leading-relaxed font-bold">
-                          主色对比：在户外强光致盲环境下，白字必须加粗以抵消光晕。对比度达到 4.5:1 (WCAG AA)。
+                          主色对比：在剧组强光环境下，白色文字需适当加粗以对抗光晕。对比度需严格符合 WCAG AA 标准。
                         </p>
                     </div>
                     <div className="space-y-3">
                         <div className="h-20 bg-white text-[#FF3B30] border-4 border-[#FF3B30] flex flex-col items-center justify-center font-black rounded-2xl">
-                           <span className="text-lg tracking-tighter" style={{ fontFamily: 'DIN Alternate' }}>¥19,200.00</span>
-                           <span className="text-[10px] opacity-60 uppercase tracking-widest">Warning Red / White</span>
+                           <span className="text-lg tracking-tighter" style={{ fontFamily: 'DIN Alternate' }}>¥19200.00</span>
+                           <span className="text-[10px] opacity-60 uppercase tracking-widest">警示红 / 纯白容器</span>
                         </div>
                         <p className="text-[11px] text-blue-100/60 leading-relaxed font-bold">
-                          警示平衡：红色作为价格强调色，在白色卡片上具有最高的信噪比，确保用户第一时间定位到金额。
+                          金额穿透力：红色作为价格强调色，在纯白容器背景上拥有极高的识别度，确保财务核对的准确性。
                         </p>
                     </div>
                 </div>
