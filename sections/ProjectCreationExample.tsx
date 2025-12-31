@@ -84,7 +84,7 @@ const ProjectCreationExample: React.FC<Props> = ({ isDarkMode }) => {
                     <td 
                         key={p.id} 
                         onClick={() => setSelectedPlan(p.id)}
-                        className={`p-4 cursor-pointer relative min-w-[100px] transition-colors ${selectedPlan === p.id ? 'text-[#0066FF] bg-[#F0F7FF]' : ''}`}
+                        className={`p-4 cursor-pointer text-xs font-black relative min-w-[100px] transition-colors ${selectedPlan === p.id ? 'text-[#0066FF] bg-[#F0F7FF]' : ''}`}
                     >
                         {p.name}
                         {selectedPlan === p.id && (
@@ -139,8 +139,8 @@ const ProjectCreationExample: React.FC<Props> = ({ isDarkMode }) => {
         </div>
 
         <div className={`rounded-[2rem] border overflow-hidden ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-[#E5E7EB] shadow-sm'}`}>
-            {/* Field: Company Name */}
-            <div className={`relative flex items-center h-[56px] px-5 transition-colors ${focusField === 'comp' ? 'bg-[#F0F7FF]' : ''}`}>
+            {/* Field: Company Name - Reduced to h-[48px] */}
+            <div className={`relative flex items-center h-[48px] px-5 transition-colors ${focusField === 'comp' ? 'bg-[#F0F7FF]' : ''}`}>
                 <span className={`${labelWidth} text-base font-bold shrink-0 mr-2 truncate ${isDarkMode ? 'text-white' : 'text-[#111827]'}`}>
                   <span className="text-[#FF3B30]">*</span> 公司名称
                 </span>
@@ -151,12 +151,12 @@ const ProjectCreationExample: React.FC<Props> = ({ isDarkMode }) => {
                     onFocus={() => setFocusField('comp')}
                     onBlur={() => setFocusField(null)}
                 />
-                <Search size={20} className="text-[#0066FF] shrink-0 ml-2" />
+                <Search size={18} className="text-[#0066FF] shrink-0 ml-2" />
                 <div className={`absolute bottom-0 left-0 md:left-[105px] right-0 transition-all ${focusField === 'comp' ? 'h-[2px] bg-[#0066FF]' : 'h-[1px] bg-[#E5E7EB]'}`}></div>
             </div>
 
-            {/* Field: ID Type */}
-            <div className={`relative flex items-center h-[56px] px-5 bg-transparent`}>
+            {/* Field: ID Type - Reduced to h-[48px] */}
+            <div className={`relative flex items-center h-[48px] px-5 bg-transparent`}>
                 <span className={`${labelWidth} text-base font-bold shrink-0 mr-2 truncate ${isDarkMode ? 'text-white' : 'text-[#111827]'}`}>
                   <span className="text-[#FF3B30]">*</span> 证件类型
                 </span>
@@ -166,8 +166,8 @@ const ProjectCreationExample: React.FC<Props> = ({ isDarkMode }) => {
                 <div className="absolute bottom-0 left-0 md:left-[105px] right-0 h-[1px] bg-[#E5E7EB]"></div>
             </div>
 
-            {/* Field: ID Code */}
-            <div className={`relative flex items-center h-[56px] px-5 transition-colors ${focusField === 'code' ? 'bg-[#F0F7FF]' : ''}`}>
+            {/* Field: ID Code - Reduced to h-[48px] */}
+            <div className={`relative flex items-center h-[48px] px-5 transition-colors ${focusField === 'code' ? 'bg-[#F0F7FF]' : ''}`}>
                 <span className={`${labelWidth} text-base font-bold shrink-0 mr-2 truncate ${isDarkMode ? 'text-white' : 'text-[#111827]'}`}>
                   <span className="text-[#FF3B30]">*</span> 证件号码
                 </span>
@@ -197,8 +197,8 @@ const ProjectCreationExample: React.FC<Props> = ({ isDarkMode }) => {
       <div className="p-4 space-y-3">
         <h3 className={`text-lg font-black px-1 ${isDarkMode ? 'text-white' : 'text-[#111827]'}`}>保单基本信息</h3>
         <div className={`rounded-[2rem] border overflow-hidden ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-[#E5E7EB] shadow-sm'}`}>
-            {/* Field: Project Name */}
-            <div className={`relative flex items-center h-[56px] px-5 transition-colors ${focusField === 'proj' ? 'bg-[#F0F7FF]' : ''}`}>
+            {/* Field: Project Name - Reduced to h-[48px] */}
+            <div className={`relative flex items-center h-[48px] px-5 transition-colors ${focusField === 'proj' ? 'bg-[#F0F7FF]' : ''}`}>
                 <span className={`${labelWidth} text-base font-bold shrink-0 mr-2 truncate ${isDarkMode ? 'text-white' : 'text-[#111827]'}`}>
                   <span className="text-[#FF3B30]">*</span> 项目名称
                 </span>
@@ -212,8 +212,8 @@ const ProjectCreationExample: React.FC<Props> = ({ isDarkMode }) => {
                 <div className={`absolute bottom-0 left-0 md:left-[105px] right-0 transition-all ${focusField === 'proj' ? 'h-[2px] bg-[#0066FF]' : 'h-[1px] bg-[#E5E7EB]'}`}></div>
             </div>
 
-            {/* Field: Start Date */}
-            <div className="relative flex items-center h-[56px] px-5 bg-transparent">
+            {/* Field: Start Date - Reduced to h-[48px] */}
+            <div className="relative flex items-center h-[48px] px-5 bg-transparent">
                 <span className={`${labelWidth} text-base font-bold shrink-0 mr-2 truncate ${isDarkMode ? 'text-white' : 'text-[#111827]'}`}>
                   <span className="text-[#FF3B30]">*</span> 生效日期
                 </span>
@@ -224,38 +224,38 @@ const ProjectCreationExample: React.FC<Props> = ({ isDarkMode }) => {
                 <div className="absolute bottom-0 left-0 md:left-[105px] right-0 h-[1px] bg-[#E5E7EB]"></div>
             </div>
 
-            {/* Field: Days Stepper */}
-            <div className="relative flex items-center h-[64px] px-5 bg-transparent">
+            {/* Field: Days Stepper - Reduced to h-[52px] */}
+            <div className="relative flex items-center h-[52px] px-5 bg-transparent">
                 <span className={`${labelWidth} text-base font-bold shrink-0 mr-2 truncate ${isDarkMode ? 'text-white' : 'text-[#111827]'}`}>
                   <span className="text-[#FF3B30]">*</span> 购买天数
                 </span>
                 <div className="flex-1 min-w-0 flex justify-end">
-                    <div className={`flex items-center rounded-xl overflow-hidden h-10 border ${isDarkMode ? 'bg-slate-700 border-slate-600' : 'bg-[#F3F4F6] border-[#E5E7EB]'}`}>
-                        <button onClick={() => setDays(Math.max(1, days-1))} className="w-9 flex items-center justify-center text-[#4B5563] active:bg-gray-200">
-                            <Minus size={18} strokeWidth={3} />
+                    <div className={`flex items-center rounded-xl overflow-hidden h-9 border ${isDarkMode ? 'bg-slate-700 border-slate-600' : 'bg-[#F3F4F6] border-[#E5E7EB]'}`}>
+                        <button onClick={() => setDays(Math.max(1, days-1))} className="w-8 flex items-center justify-center text-[#4B5563] active:bg-gray-200">
+                            <Minus size={16} strokeWidth={3} />
                         </button>
-                        <input className={`w-10 text-center bg-transparent font-black text-base outline-none ${isDarkMode ? 'text-white' : 'text-[#111827]'}`} value={days} readOnly />
-                        <button onClick={() => setDays(days+1)} className="w-9 flex items-center justify-center text-[#0066FF] active:bg-gray-200">
-                            <Plus size={18} strokeWidth={3} />
+                        <input className={`w-9 text-center bg-transparent font-black text-sm outline-none ${isDarkMode ? 'text-white' : 'text-[#111827]'}`} value={days} readOnly />
+                        <button onClick={() => setDays(days+1)} className="w-8 flex items-center justify-center text-[#0066FF] active:bg-gray-200">
+                            <Plus size={16} strokeWidth={3} />
                         </button>
                     </div>
                 </div>
                 <div className="absolute bottom-0 left-0 md:left-[105px] right-0 h-[1px] bg-[#E5E7EB]"></div>
             </div>
 
-            {/* Field: People Stepper */}
-            <div className="relative flex items-center h-[64px] px-5 bg-transparent">
+            {/* Field: People Stepper - Reduced to h-[52px] */}
+            <div className="relative flex items-center h-[52px] px-5 bg-transparent">
                 <span className={`${labelWidth} text-base font-bold shrink-0 mr-2 truncate ${isDarkMode ? 'text-white' : 'text-[#111827]'}`}>
                   <span className="text-[#FF3B30]">*</span> 预估人数
                 </span>
                 <div className="flex-1 min-w-0 flex justify-end">
-                    <div className={`flex items-center rounded-xl overflow-hidden h-10 border ${isDarkMode ? 'bg-slate-700 border-slate-600' : 'bg-[#F3F4F6] border-[#E5E7EB]'}`}>
-                        <button onClick={() => setPeople(Math.max(1, people-10))} className="w-9 flex items-center justify-center text-[#4B5563] active:bg-gray-200">
-                            <Minus size={18} strokeWidth={3} />
+                    <div className={`flex items-center rounded-xl overflow-hidden h-9 border ${isDarkMode ? 'bg-slate-700 border-slate-600' : 'bg-[#F3F4F6] border-[#E5E7EB]'}`}>
+                        <button onClick={() => setPeople(Math.max(1, people-10))} className="w-8 flex items-center justify-center text-[#4B5563] active:bg-gray-200">
+                            <Minus size={16} strokeWidth={3} />
                         </button>
-                        <input className={`w-12 text-center bg-transparent font-black text-base outline-none ${isDarkMode ? 'text-white' : 'text-[#111827]'}`} value={people} readOnly />
-                        <button onClick={() => setPeople(people+10)} className="w-9 flex items-center justify-center text-[#0066FF] active:bg-gray-200">
-                            <Plus size={18} strokeWidth={3} />
+                        <input className={`w-10 text-center bg-transparent font-black text-sm outline-none ${isDarkMode ? 'text-white' : 'text-[#111827]'}`} value={people} readOnly />
+                        <button onClick={() => setPeople(people+10)} className="w-8 flex items-center justify-center text-[#0066FF] active:bg-gray-200">
+                            <Plus size={16} strokeWidth={3} />
                         </button>
                     </div>
                 </div>

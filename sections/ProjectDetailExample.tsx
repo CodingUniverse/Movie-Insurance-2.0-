@@ -9,7 +9,8 @@ import {
   ShieldCheck,
   FileText,
   Lock,
-  Search
+  Search,
+  XCircle
 } from 'lucide-react';
 import Button from '../components/Button';
 
@@ -19,6 +20,13 @@ interface Props {
 
 const ProjectDetailExample: React.FC<Props> = ({ isDarkMode }) => {
   const [activeTab, setActiveTab] = useState('business');
+  const [focusField, setFocusField] = useState<number | null>(null);
+  const [formValues, setFormValues] = useState([
+    { label: '项目名称', value: '流浪地球-特别拍摄组', required: true, placeholder: '请输入项目名称' },
+    { label: '公司主体', value: '', required: true, placeholder: '请输入完整企业名称' },
+    { label: '统一信用代码', value: '', required: true, placeholder: '18位社会统一信用代码' },
+    { label: '邮箱地址', value: '', required: true, placeholder: '接收电子保单专用' },
+  ]);
   
   const rates = [
     { period: '1-3天', price: '8.00' },
@@ -41,6 +49,18 @@ const ProjectDetailExample: React.FC<Props> = ({ isDarkMode }) => {
   const numericStyle = { 
     fontFamily: 'DIN Alternate, sans-serif', 
     fontVariantNumeric: 'tabular-nums' 
+  };
+
+  const handleInputChange = (index: number, val: string) => {
+    const newValues = [...formValues];
+    newValues[index].value = val;
+    setFormValues(newValues);
+  };
+
+  const clearField = (index: number) => {
+    const newValues = [...formValues];
+    newValues[index].value = '';
+    setFormValues(newValues);
   };
 
   return (
@@ -127,27 +147,39 @@ const ProjectDetailExample: React.FC<Props> = ({ isDarkMode }) => {
       <div className="space-y-3 mt-3">
         <div className={`p-6 transition-colors ${isDarkMode ? 'bg-slate-800' : 'bg-white'}`}>
             <div className="flex justify-between items-center mb-6">
-                <h4 className="text-lg font-black text-[#111827]">投保方信息</h4>
+                <h4 className="text-lg font-black text-[#111827]">投保方信息（您的公司）</h4>
                 <Button variant="secondary" size="small" className="rounded-full px-4 text-[10px] h-8 font-black" icon={<Search size={12}/>}>
                   搜索企业库
                 </Button>
             </div>
-            <div className="space-y-6">
-                {[
-                  { label: '项目名称', value: '流浪地球-特别拍摄组', required: true },
-                  { label: '公司主体', placeholder: '请输入完整企业名称', required: true },
-                  { label: '邮箱地址', placeholder: '接收电子保单专用', required: true },
-                ].map((field, idx) => (
-                  <div key={idx} className="relative flex items-center py-2 h-[48px]">
-                    <span className="w-24 text-sm font-bold text-[#4B5563]">
+            <div className="space-y-1">
+                {formValues.map((field, idx) => (
+                  <div key={idx} className={`relative flex items-center h-[48px] px-3 transition-all ${focusField === idx ? (isDarkMode ? 'bg-slate-700' : 'bg-[#F0F7FF]') : ''}`}>
+                    <span className="w-28 shrink-0 text-sm font-bold text-[#4B5563]">
                       {field.required && <span className="text-[#FF3B30] mr-0.5">*</span>}{field.label}
                     </span>
                     <input 
-                        className={`flex-1 text-sm font-black text-[#111827] text-right bg-transparent outline-none placeholder-[#D1D5DB] transition-all`} 
-                        defaultValue={field.value}
+                        className={`flex-1 text-sm font-black ${isDarkMode ? 'text-white' : 'text-[#111827]'} bg-transparent outline-none placeholder-[#D1D5DB] transition-all`} 
+                        value={field.value}
                         placeholder={field.placeholder}
+                        onFocus={() => setFocusField(idx)}
+                        onBlur={() => setTimeout(() => setFocusField(null), 100)}
+                        onChange={(e) => handleInputChange(idx, e.target.value)}
                     />
-                    <div className="absolute bottom-0 left-0 md:left-[96px] right-0 h-[1px] bg-gray-50"></div>
+                    {/* Optimized Clear Button: Subtle Gray Circular Design */}
+                    {focusField === idx && field.value && (
+                      <button 
+                        onMouseDown={(e) => {
+                          e.preventDefault();
+                          clearField(idx);
+                        }}
+                        className="p-1 text-[#9CA3AF] active:scale-90 transition-all shrink-0 ml-2"
+                      >
+                        <XCircle size={20} fill="currentColor" className={isDarkMode ? 'text-slate-600' : 'text-slate-200'} />
+                        <XCircle size={20} className={`absolute inset-0 m-1 ${isDarkMode ? 'text-slate-400' : 'text-slate-400'}`} />
+                      </button>
+                    )}
+                    <div className={`absolute bottom-0 left-3 right-3 h-[1px] ${focusField === idx ? 'bg-[#0066FF]' : 'bg-gray-100'}`}></div>
                   </div>
                 ))}
             </div>

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Layout, Palette, Smartphone, MessageSquareHeart, ShieldCheck, Moon, Sun, Users, ClipboardList, FileUp, FileCheck, Layers, Droplet, Type, Stamp, Ruler, ClipboardType, Compass, Loader2, Camera, Search, PlusSquare, Grid, Clipboard } from 'lucide-react';
+import { Layout, Palette, Smartphone, MessageSquareHeart, ShieldCheck, Moon, Sun, Users, ClipboardList, FileUp, FileCheck, Layers, Droplet, Type, Stamp, Ruler, ClipboardType, Compass, Loader2, Camera, Search, PlusSquare, Grid, Clipboard, FileText } from 'lucide-react';
 import Introduction from './sections/Introduction';
 import VisualHierarchy from './sections/VisualHierarchy';
 import Ergonomics from './sections/Ergonomics';
@@ -23,6 +23,7 @@ import SearchEmptySpecification from './sections/SearchEmptySpecification';
 import ProjectCreationExample from './sections/ProjectCreationExample';
 import ProjectListExample from './sections/ProjectListExample';
 import ProjectDetailExample from './sections/ProjectDetailExample';
+import CopywritingSpecification from './sections/CopywritingSpecification';
 
 export enum Section {
   INTRO = 'intro',
@@ -32,6 +33,7 @@ export enum Section {
   ERGONOMICS = 'ergonomics',
   HIERARCHY = 'hierarchy',
   COLOR = 'color',
+  COPYWRITING = 'copywriting',
   TYPOGRAPHY = 'typography',
   ICON = 'icon',
   DIMENSIONS = 'dimensions',
@@ -73,6 +75,7 @@ const App: React.FC = () => {
     { id: Section.ERGONOMICS, label: '工学', icon: <Smartphone size={18} /> },
     { id: Section.HIERARCHY, label: '按钮', icon: <Palette size={18} /> },
     { id: Section.COLOR, label: '色彩', icon: <Droplet size={18} /> },
+    { id: Section.COPYWRITING, label: '文案', icon: <FileText size={18} /> },
     { id: Section.TYPOGRAPHY, label: '字体', icon: <Type size={18} /> },
     { id: Section.ICON, label: '图标', icon: <Stamp size={18} /> },
     { id: Section.DIMENSIONS, label: '尺寸', icon: <Ruler size={18} /> },
@@ -113,6 +116,7 @@ const App: React.FC = () => {
         {activeSection === Section.ERGONOMICS && <Ergonomics />}
         {activeSection === Section.HIERARCHY && <VisualHierarchy isDarkMode={isDarkMode} />}
         {activeSection === Section.COLOR && <ColorSpecification isDarkMode={isDarkMode} />}
+        {activeSection === Section.COPYWRITING && <CopywritingSpecification isDarkMode={isDarkMode} />}
         {activeSection === Section.TYPOGRAPHY && <TypographySpecification isDarkMode={isDarkMode} />}
         {activeSection === Section.ICON && <IconSpecification isDarkMode={isDarkMode} />}
         {activeSection === Section.DIMENSIONS && <DimensionsSpecification isDarkMode={isDarkMode} />}
@@ -130,7 +134,7 @@ const App: React.FC = () => {
         {activeSection === Section.EMOTIONAL && <EmotionalDesign isDarkMode={isDarkMode} />}
       </main>
 
-      <nav className={`fixed bottom-0 left-0 right-0 z-50 border-t transition-colors ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-gray-200 shadow-lg'}`}>
+      <nav className={`fixed bottom-0 left-0 right-0 z-50 border-t transition-colors ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-gray-100 shadow-lg'}`}>
         <div className="max-w-4xl mx-auto flex justify-around items-center px-1 py-2 overflow-x-auto no-scrollbar">
           {navItems.map((item) => (activeSection === item.id ? (
             <button
